@@ -1,7 +1,7 @@
 # Advent of Code 2024
 
 Solutions for [Advent of Code](https://adventofcode.com/) [2024](https://adventofcode.com/2024) written in Kotlin.
-No fancy scripts just pure code of my quick personal attempts. :)
+No fancy scripts, just pure code with my quick personal attempts. :)
 
 #### Solved solutions:
 * [Day 1](src/day01) ★★
