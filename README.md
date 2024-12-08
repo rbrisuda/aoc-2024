@@ -3,7 +3,7 @@
 Solutions for [Advent of Code](https://adventofcode.com/) [2024](https://adventofcode.com/2024) written in Kotlin.
 No fancy scripts, just pure code with my quick personal attempts. :)
 
-#### Solved solutions:
+#### Solved days:
 * [Day 1](src/day01) ★★
 * [Day 2](src/day02) ★★
 * [Day 3](src/day03) ★★
