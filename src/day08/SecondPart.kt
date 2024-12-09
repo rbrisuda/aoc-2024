@@ -23,9 +23,7 @@ fun main() {
         }
         i++
     }
-
     val antinodes = mutableSetOf<Point>()
-
     coordinates.forEach { _, points ->
         for (i in points.indices) {
             for (j in i + 1 until points.size) {

@@ -12,9 +12,10 @@ No fancy scripts, just pure code with my quick personal attempts. :)
 * [Day 6](src/day06) ★★
 * [Day 7](src/day07) ★★
 * [Day 8](src/day08) ★★
+* [Day 9](src/day09) ★★
 
 #### Structure of repo:
  - day per package,
  - every day package contains: 
    - input,
-   - FirstPart and SecondPart solutions, which can be run independently of any dependencies.
+   - FirstPart and SecondPart solutions, which can be run independently of any dependencies and can be compared how solution was changed.
