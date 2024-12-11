@@ -22,31 +22,30 @@ fun main() {
     }
     var result = 0L
     startingPositions.forEach {
-        val count = Count(0)
-        traversePositions(it.first, it.second, 0, matrix, count)
-        result += count.count
+        result += countTrails(it.first, it.second, 0, matrix)
     }
     println(result)
 }
 
-private fun traversePositions(
+private fun countTrails(
     i: Int,
     j: Int,
     position: Int,
     matrix: List<String>,
-    count: Count
-) {
-    if (position == 9) count.count++
+): Int {
+    if (position == 9) return 1
+    var count = 0
     if (i + 1 < matrix.size && matrix[i + 1][j].digitToInt() == position + 1) {
-        traversePositions(i + 1, j, position + 1, matrix, count)
+        count += countTrails(i + 1, j, position + 1, matrix)
     }
     if (j + 1 < matrix.size && matrix[i][j + 1].digitToInt() == position + 1) {
-        traversePositions(i, j + 1, position + 1, matrix, count)
+        count += countTrails(i, j + 1, position + 1, matrix)
     }
     if (i - 1 >= 0 && matrix[i - 1][j].digitToInt() == position + 1) {
-        traversePositions(i - 1, j, position + 1, matrix, count)
+        count += countTrails(i - 1, j, position + 1, matrix)
     }
     if (j - 1 >= 0 && matrix[i][j - 1].digitToInt() == position + 1) {
-        traversePositions(i, j - 1, position + 1, matrix, count)
+        count += countTrails(i, j - 1, position + 1, matrix)
     }
+    return count
 }

@@ -4,8 +4,6 @@ import kotlin.io.path.Path
 import kotlin.io.path.forEachLine
 
 
-data class Count(var count: Int = 0)
-
 fun main() {
     val matrix = mutableListOf<String>()
     val startingPositions = mutableListOf<Pair<Int, Int>>()
@@ -24,33 +22,32 @@ fun main() {
     }
     var result = 0L
     startingPositions.forEach {
-        val count = Count(0)
-        traversePositions(it.first, it.second, 0, matrix, mutableSetOf(), count)
-        result += count.count
+        result += countPaths(it.first, it.second, 0, matrix, mutableSetOf())
     }
     println(result)
 }
 
-private fun traversePositions(
+private fun countPaths(
     i: Int,
     j: Int,
     position: Int,
     matrix: List<String>,
-    visited: MutableSet<Pair<Int, Int>>,
-    count: Count
-) {
-    if (position == 9) count.count++
+    visited: MutableSet<Pair<Int, Int>>
+): Int {
     visited.add(Pair(i, j))
+    if (position == 9) return 1
+    var count = 0
     if (i + 1 < matrix.size && !visited.contains(Pair(i + 1, j)) && matrix[i + 1][j].digitToInt() == position + 1) {
-        traversePositions(i + 1, j, position + 1, matrix, visited, count)
+        count += countPaths(i + 1, j, position + 1, matrix, visited)
     }
     if (j + 1 < matrix.size && !visited.contains(Pair(i, j + 1)) && matrix[i][j + 1].digitToInt() == position + 1) {
-        traversePositions(i, j + 1, position + 1, matrix, visited, count)
+        count += countPaths(i, j + 1, position + 1, matrix, visited)
     }
     if (i - 1 >= 0 && !visited.contains(Pair(i - 1, j)) && matrix[i - 1][j].digitToInt() == position + 1) {
-        traversePositions(i - 1, j, position + 1, matrix, visited, count)
+        count += countPaths(i - 1, j, position + 1, matrix, visited)
     }
     if (j - 1 >= 0 && !visited.contains(Pair(i, j - 1)) && matrix[i][j - 1].digitToInt() == position + 1) {
-        traversePositions(i, j - 1, position + 1, matrix, visited, count)
+        count += countPaths(i, j - 1, position + 1, matrix, visited)
     }
+    return count
 }
