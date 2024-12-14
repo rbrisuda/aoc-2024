@@ -16,6 +16,7 @@ No fancy scripts, just pure code with my quick personal attempts. :)
 * [Day 10](src/day10) ★★
 * [Day 11](src/day11) ★★
 * [Day 12](src/day12) ★★
+* [Day 13](src/day13) ★★
 
 #### Structure of repo:
  - day per package,
